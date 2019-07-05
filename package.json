@@ -1,0 +1,16 @@
+{
+  "name": "@chr33s/erd",
+  "version": "0.1.0",
+  "description": "Entity Relationship Diagram (ERD) tool",
+  "main": "index.js",
+  "bin": {
+    "erd": "./bin/erd"
+  },
+  "scripts": {},
+  "license": "MIT",
+  "dependencies": {
+    "mysql": "2.17.1",
+    "viz.js": "2.1.2",
+    "yargs": "13.2.4"
+  }
+}

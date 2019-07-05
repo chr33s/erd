@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+'use strict'
+
+const { argv } = require('yargs')
+
+const erd = require('../')
+
+if (!argv.db) {
+  console.error('!db specified')
+  process.exit(1)
+}
+
+erd(argv.db)
