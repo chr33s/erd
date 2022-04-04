@@ -28,12 +28,8 @@ digraph {
 }
 `)
 
-export default (database, user = 'root', password) => {
-  const connection = mysql.createConnection({
-    database,
-    password,
-    user,
-  })
+export default (dsn) => {
+  const connection = mysql.createConnection(dsn)
   connection.connect()
 
   const query = util.promisify(connection.query).bind(connection)
