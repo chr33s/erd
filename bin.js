@@ -1,6 +1,6 @@
 import yargs from 'yargs';
 
-import erd from '../index.js';
+import erd from './index.js';
 
 const { argv } = yargs(process.argv.slice(2));
 if (!argv.dsn) {

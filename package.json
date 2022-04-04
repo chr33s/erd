@@ -9,7 +9,7 @@
   "type": "module",
   "main": "index.js",
   "bin": {
-    "erd": "node ./bin/erd.js"
+    "erd": "node ./bin.js"
   },
   "scripts": {},
   "license": "MIT",
