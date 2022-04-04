@@ -1,11 +1,8 @@
-#!/usr/bin/env node
+import yargs from 'yargs';
 
-'use strict'
+import erd from '../index.js';
 
-const { argv } = require('yargs')
-
-const erd = require('../')
-
+const { argv } = yargs(process.argv.slice(2));
 if (!argv.db) {
   console.error('!db specified')
   process.exit(1)

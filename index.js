@@ -1,12 +1,10 @@
-'use strict'
+import { Module, render } from 'viz.js/full.render.js'
+import mysql from 'mysql'
+import Viz from 'viz.js'
+import util from 'util'
+import fs from 'fs'
 
-const { Module, render } = require('viz.js/full.render.js')
-const mysql = require('mysql')
-const Viz = require('viz.js')
-const util = require('util')
-const fs = require('fs')
-
-let viz = new Viz({ Module, render })
+const viz = new Viz({ Module, render })
 
 const tr = (port, data) => `<tr><td port="${port}">${data}</td></tr>`
 
@@ -30,7 +28,7 @@ digraph {
 }
 `)
 
-module.exports = (database, user = 'root', password) => {
+export default (database, user = 'root', password) => {
   const connection = mysql.createConnection({
     database,
     password,
@@ -89,5 +87,6 @@ module.exports = (database, user = 'root', password) => {
     .then(data => viz.renderString(data, { engine: 'dot', format: 'svg' }))
     .then(data => fs.writeFileSync(`./${database}.svg`, data))
     .catch(console.error)
+    .then(() => connection.end())
     .then(() => process.exit(0))
 }
