@@ -11,4 +11,4 @@ if (!argv.db) {
   process.exit(1)
 }
 
-erd(argv.db)
+erd(argv.db, argv.username, argv.password)
