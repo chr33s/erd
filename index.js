@@ -1,6 +1,7 @@
 import { Module, render } from 'viz.js/full.render.js'
 import mysql from 'mysql'
 import Viz from 'viz.js'
+import { parse } from 'url';
 import util from 'util'
 import fs from 'fs'
 
@@ -29,6 +30,8 @@ digraph {
 `)
 
 export default (dsn) => {
+  const database = parse(dsn).pathname.replace(/^\//, '');
+
   const connection = mysql.createConnection(dsn)
   connection.connect()
 

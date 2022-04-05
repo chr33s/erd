@@ -1,6 +1,6 @@
 {
   "name": "@chr33s/erd",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Entity Relationship Diagram (ERD) tool",
   "engines": {
     "node": "16",
