@@ -29,7 +29,7 @@ digraph {
 }
 `)
 
-export default (dsn) => {
+export default ({ dsn, name, format = 'svg' }) => {
   const database = parse(dsn).pathname.replace(/^\//, '');
 
   const connection = mysql.createConnection(dsn)
@@ -83,8 +83,8 @@ export default (dsn) => {
       )
     )
     .then(data => graph(data))
-    .then(data => viz.renderString(data, { engine: 'dot', format: 'svg' }))
-    .then(data => fs.writeFileSync(`./${database}.svg`, data))
+    .then(data => viz.renderString(data, { engine: 'dot', format }))
+    .then(data => fs.writeFileSync(`./${name || database}.${format}`, data))
     .catch(console.error)
     .then(() => connection.end())
     .then(() => process.exit(0))

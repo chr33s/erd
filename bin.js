@@ -10,4 +10,4 @@ if (!argv.dsn) {
   process.exit(1)
 }
 
-erd(argv.dsn)
+erd(argv)
